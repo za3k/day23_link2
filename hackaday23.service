@@ -1,0 +1,11 @@
+[Unit]
+Description=gunicorn3 for hackaday-23-link2
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/hackaday/day23_link2
+ExecStart=/bin/gunicorn3 -e SCRIPT_NAME=/hackaday/link2 --bind 0.0.0.0:8023 app:app
+
+[Install]
+WantedBy=multi-user.target

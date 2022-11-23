@@ -1,0 +1,18 @@
+{% extends 'base2.html' %}
+
+{% block header %}
+    <h3>{% block title %}{{ project_name }}{% endblock %}</h3>
+    {{ project_name }} {{ description }}. {{ instructions | safe }}
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<ol class="links">
+{% for url in links %}
+    <li>
+        <a href="{{url}}">{{url}}</a>
+        <span class="date">{{ link_info[url]["created"].strftime("%Y-%m-%d") }}</span>
+    </li>
+{% endfor %}
+</ol>
+{% endblock %}
